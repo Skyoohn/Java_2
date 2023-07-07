@@ -167,7 +167,7 @@ public class J230703 {
 		
 //		Set<Integer> lotto = new HashSet<>();
 //		
-//		while(lotto.size() != 6) {
+//		while(lotto.size() != 6) {   // lotto의 크기가 6과 다를때까지 반복된다는 뜻
 //		int num = (int)(Math.random()*45)+1;	
 //		lotto.add(num);
 //		
