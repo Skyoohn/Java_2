@@ -226,3 +226,6 @@ public class A230618 {
 //		}
 //		System.out.println();
 //		System.out.println("끗");
+
+		
+	}}

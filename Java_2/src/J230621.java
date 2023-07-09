@@ -1,35 +1,35 @@
-class Grade{
-	int kor, eng, math;
-	
-	void setGrade(int kor,int eng,int math){
-		this.kor=kor;
-		this.eng=eng;
-		this.math=math;
-	}
-	double getAvg() {
-		return(kor+eng+math)/3.0;
-	}
-	char getGrade() {
-		
-		char ch = '가';
-		double avg = getAvg();
-		
-		if(avg >= 90) {
-			ch = '수';
-		}
-		else if(avg >= 80) {
-			ch = '우';
-		}
-		else if(avg >= 70) {
-			ch = '미';
-		}
-		else {
-			ch = '가';
-		}
-		return ch;
-	}
-	
-}
+//class Grade{
+//	int kor, eng, math;
+//	
+//	void setGrade(int kor,int eng,int math){
+//		this.kor=kor;
+//		this.eng=eng;
+//		this.math=math;
+//	}
+//	double getAvg() {
+//		return(kor+eng+math)/3.0;
+//	}
+//	char getGrade() {
+//		
+//		char ch = '가';
+//		double avg = getAvg();
+//		
+//		if(avg >= 90) {
+//			ch = '수';
+//		}
+//		else if(avg >= 80) {
+//			ch = '우';
+//		}
+//		else if(avg >= 70) {
+//			ch = '미';
+//		}
+//		else {
+//			ch = '가';
+//		}
+//		return ch;
+//	}
+//	
+//}
 
 //class Rectange4{
 //	private int width, height;
@@ -58,17 +58,17 @@ public class J230621 {
 //	}
 //		
 //	}
-		Grade grade = new Grade();
-		
-		grade.setGrade(90, 75, 60);
-		
-		System.out.println(grade.getAvg());
-		System.out.println(grade.getGrade());
-		
-		
-	}
-
-}
+//		Grade grade = new Grade();
+//		
+//		grade.setGrade(90, 75, 60);
+//		
+//		System.out.println(grade.getAvg());
+//		System.out.println(grade.getGrade());
+//		
+//		
+//	}
+//
+//}
 
 
 //- 클래스 Grade
