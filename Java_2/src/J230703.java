@@ -31,7 +31,6 @@ import java.util.TreeSet;
 //}
 //} 만든거
 
-
 //class Num{
 //	private int num;
 //	public Num(int n) {num = n;}
