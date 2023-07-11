@@ -103,7 +103,7 @@ import com.sun.jdi.Value;
 //
 //	}
 
-public class J230623 {
+public class J230623_Lotto {
 
 	public static void main(String[] args) {
 		

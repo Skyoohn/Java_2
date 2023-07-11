@@ -1,5 +1,5 @@
 //구구단과 switch
-public class ifelse {
+public class Grade99Switch {
 
 	public static void main(String[] args) {
 
