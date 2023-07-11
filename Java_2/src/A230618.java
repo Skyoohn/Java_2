@@ -11,6 +11,23 @@ public class A230618 {
 //	
 //	}
 //}
+
+
+//		for(int i = 1; i <= 9; i++) {
+//			for(int j = 1; j <=9; j++) {
+//				if(i % 2 == 0)
+//				System.out.println(i*j);
+//			}
+//		}
+//		//짝수단
+		
+		
+//		for(int i = 1; i <= 9; i++) {
+//			System.out.println(3*i);			
+//		}
+////		3단 출력
+//		
+		
 //		int n1 = 5;
 //		int n2 = 5;
 //		
@@ -138,6 +155,18 @@ public class A230618 {
 //		System.out.println(sum);
 		
 		
+
+//		int sum = 0;
+//		for(int i = 2; i <= 100; i+=2){
+//			sum += i;
+//			
+//		}
+//		System.out.println(sum);
+//// 짝수의 합 구하기		
+		
+		
+		
+		
 //		int sum = 0;
 //		for(int i =1; i <= 100; i++) {
 //			sum = sum + i;
@@ -178,6 +207,8 @@ public class A230618 {
 //			}
 //			num++;
 //		}
+//		System.out.println(num); // 여기서 최소공배수
+		
 //		if(search)
 //			System.out.println("찾는 정수 : " + num);
 //		else

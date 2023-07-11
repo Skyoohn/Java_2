@@ -2,7 +2,7 @@
 public class J230619 {
     public static void main(String[] args) {
 
-//    	      showStar(2); }
+//    	      showStar(3); }
 //        public static void showStar(int num) {
 //	      for(int i =1 ;i <=num;i++) {
 //	         for(int j =1 ;j <= i;j++) {
@@ -10,10 +10,9 @@ public class J230619 {
 //	         }
 //	         System.out.println();
 //	      }
-//}
-//}
+}
+}
 
-		
 //		for(int i=1;i<=5;i++) { //줄
 //		for(int j=1;j<=i;j++) { //내용물 삼각형
 //		System.out.print("*");
