@@ -50,6 +50,8 @@ public class Dao {
 				emp.setJob(rs.getString("job"));
 				emp.setMgr(rs.getInt("mgr"));
 				emp.setSal(rs.getInt("sal"));
+				
+				emps.add(emp);
 			}
 		} catch (Exception e) {
 			// TODO: handle exception
