@@ -1,13 +1,36 @@
-import java.util.HashSet;
-import java.util.Set;
+class GetSum {
+	int num;
+	
+	void setNum(int num1) {
+		num = num1;
+	}
+	
+	int sum() {
+		int sum = 0;
+		for(int i = 1; i <= num; i++) {
+			sum = sum +i;
+		}
+	return sum;
+	}
+
+
+	
+	
+}
 
 public class Rensyuu {
 	public static void main(String[] args) {
-		Set<Integer> lotto = new HashSet<>();
-		
-		while(lotto.size() != 6) {
-			int num = (int)(Math.random()*45)+1;
-			lotto.add(num);
-		}
-		System.out.println(lotto);
+		GetSum getsum = new GetSum(); // 1)객체 생성
+        int num; // 2)num 변수 선언
+
+        num = 100;
+
+        getsum.setNum(num); // 3)getsum 객체의 setNum함수 호출, num값 50 저장
+
+        num = getsum.sum(); // 4)getsum객체의 sum함수 호출, 1-50까지 합 구함
+        System.out.println(num);
+
+        getsum.setNum(1000);
+        num = getsum.sum(); // 4)getsum객체의 sum함수 호출, 1-50까지 합 구함
+        System.out.println(num);
 		}}
