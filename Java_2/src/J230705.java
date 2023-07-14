@@ -105,12 +105,12 @@ public class J230705 {
 
 	public static void main(String[] args) throws Exception{
 //		Runnable r = new RunnableAccount();
-//		
+		
 //		Thread t1 = new Thread(r,"첫번째"); 
 ////		Thread t2 = new Thread(r,"두번째");
 //			
 //		t1.start();
-//		t2.start();
+////		t2.start();
 		
 //		String name = Thread.currentThread().getName();
 //		System.out.println(name);

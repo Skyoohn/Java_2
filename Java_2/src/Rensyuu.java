@@ -1,36 +1,26 @@
-class GetSum {
-	int num;
-	
-	void setNum(int num1) {
-		num = num1;
-	}
-	
-	int sum() {
-		int sum = 0;
-		for(int i = 1; i <= num; i++) {
-			sum = sum +i;
-		}
-	return sum;
+import java.util.HashSet;
+import java.util.Set;
+
+class TV{
+	   private int size;
+	   public TV(int size) { this.size = size; }
+	   public int getSize() { return size; }
 	}
 
-
+class ColorTV extends TV{
+	private int color;
 	
-	
+	public ColorTV(int size,int color) {
+		super(size);
+		this.color=color;
+	}
+	public void printProperty() {
+		System.out.println(super.getSize()+"인치"+color+"컬러 TV");
+	}
 }
-
 public class Rensyuu {
 	public static void main(String[] args) {
-		GetSum getsum = new GetSum(); // 1)객체 생성
-        int num; // 2)num 변수 선언
-
-        num = 100;
-
-        getsum.setNum(num); // 3)getsum 객체의 setNum함수 호출, num값 50 저장
-
-        num = getsum.sum(); // 4)getsum객체의 sum함수 호출, 1-50까지 합 구함
-        System.out.println(num);
-
-        getsum.setNum(1000);
-        num = getsum.sum(); // 4)getsum객체의 sum함수 호출, 1-50까지 합 구함
-        System.out.println(num);
-		}}
+		   ColorTV myTV = new ColorTV(32, 1024);
+		   myTV.printProperty();
+		}
+	}
