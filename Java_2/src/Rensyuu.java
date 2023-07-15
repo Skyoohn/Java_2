@@ -1,26 +1,32 @@
-import java.util.HashSet;
-import java.util.Set;
+class MyThread1 extends Thread{
 
-class TV{
-	   private int size;
-	   public TV(int size) { this.size = size; }
-	   public int getSize() { return size; }
+	@Override
+	public void run() {
+		System.out.println(getName());
+		for(int i = 0; i< 300; i++) {
+			System.out.print("-");
+		}
 	}
-
-class ColorTV extends TV{
-	private int color;
 	
-	public ColorTV(int size,int color) {
-		super(size);
-		this.color=color;
-	}
-	public void printProperty() {
-		System.out.println(super.getSize()+"인치"+color+"컬러 TV");
-	}
 }
+class MyThread2 extends Thread{
+
+	@Override
+	public void run() {
+		System.out.println(getName());
+		for (int i = 0; i < 300; i++) {
+			System.out.print(("|"));
+		}
+	}
+	
+}
+
 public class Rensyuu {
 	public static void main(String[] args) {
-		   ColorTV myTV = new ColorTV(32, 1024);
-		   myTV.printProperty();
-		}
+		MyThread1 m1 = new MyThread1();
+		MyThread2 m2 = new MyThread2();
+		
+		m1.start();
+		m2.start();
+	}
 	}
