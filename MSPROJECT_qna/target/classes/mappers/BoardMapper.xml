@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <mapper namespace="edu.global.ex.mapper.BoardMapper">
+  
+      <select id="getList1" resultType="edu.global.ex.vo.BoardVO">
+    <![CDATA[
+      select * from ms_notice_board1 order by nGroup desc, nStep asc
+    ]]>    
+    </select>
+    
+   <select id="read1" resultType="BoardVO">
+    <![CDATA[
+      select * from ms_notice_board1 where nid = #{nid}
+    ]]>    
+    </select>
+    
+      <update id="update1">
+    <![CDATA[
+      update ms_notice_board1 set nname=#{nname}, ntitle=#{ntitle}, ncontent=#{ncontent} 
+             where nid =#{nid}
+   ]]>    
+    </update>
+    
+    <delete id="delete1">
+    <![CDATA[
+      delete from ms_notice_board1 where nid =#{nid}
+   ]]>    
+    </delete>
+    
+    <insert id="insert1">
+    <![CDATA[
+	insert into ms_notice_board1 (nid, nname, ntitle, ncontent, ngroup, nstep, nindent) 
+            values (ms_notice_board1_seq.nextval, #{nname}, #{ntitle}, #{ncontent}, ms_notice_board1_seq.currval, 0, 0) 
+   ]]>    
+    </insert>
+    
+     <!--댓글을 하나씩 미뤄서 정렬을 해줘야 하기 때문에 
+         세로 정렬을 bstep에 +1로 한칸씩 미뤄내줘야한다. -->
+    <update id="updateShape1">
+    <![CDATA[
+      update ms_notice_board1 set nstep = nstep + 1 where ngroup =#{ngroup} and nstep > #{nstep}
+   ]]>    
+    </update>
+    
+        <insert id="insertReply1">
+    <![CDATA[
+      insert into ms_notice_board1 (nid, nname, ntitle, ncontent, ngroup, nstep, nindent) 
+      values (ms_notice_board1_seq.nextval, #{nname}, #{ntitle},#{ncontent}, 
+                #{ngroup}, #{nstep}+1, #{nindent}+1)
+   ]]>    
+    </insert>
+    
+    
+    
+    
+    
+  
+    <select id="getList" resultType="edu.global.ex.vo.BoardVO">
+    <![CDATA[
+      select * from ms_qna_board order by qGroup desc, qStep asc
+   ]]>    
+    </select>
+    
+   <select id="read" resultType="BoardVO">
+    <![CDATA[
+      select * from ms_qna_board where qid = #{qid}
+   ]]>    
+    </select>
+    
+      <update id="update">
+    <![CDATA[
+      update ms_qna_board set qname=#{qname}, qtitle=#{qtitle}, qcontent=#{qcontent} 
+             where qid =#{qid}
+   ]]>    
+    </update>
+    
+    <delete id="delete">
+    <![CDATA[
+      delete from ms_qna_board where qid =#{qid}
+   ]]>    
+    </delete>
+    
+    <insert id="insert">
+    <![CDATA[
+	insert into ms_qna_board (qid, qname, qtitle, qcontent, qgroup, qstep, qindent) 
+            values (ms_qna_board_seq.nextval, #{qname}, #{qtitle}, #{qcontent}, ms_qna_board_seq.currval, 0, 0) 
+   ]]>    
+    </insert>
+    
+     <!--댓글을 하나씩 미뤄서 정렬을 해줘야 하기 때문에 
+         세로 정렬을 bstep에 +1로 한칸씩 미뤄내줘야한다. -->
+    <update id="updateShape">
+    <![CDATA[
+      update ms_qna_board set qstep = qstep + 1 where qgroup =#{qgroup} and qstep > #{qstep}
+   ]]>    
+    </update>
+    
+        <insert id="insertReply">
+    <![CDATA[
+      insert into ms_qna_board (qid, qname, qtitle, qcontent, qgroup, qstep, qindent) 
+      values (ms_qna_board_seq.nextval, #{qname}, #{qtitle},#{qcontent}, 
+                #{qgroup}, #{qstep}+1, #{qindent}+1)
+   ]]>    
+    </insert>
+    
+       <select id="getTotalCount" resultType="int">
+      <![CDATA[
+          select count(*) from ms_qna_board
+      ]]>
+   </select>
+   
+   <select id="getListWithPaging" resultType="BoardVO">
+      <![CDATA[
+        SELECT * FROM (
+              SELECT ROWNUM AS RNUM, A.* FROM (
+                       SELECT
+                             *
+                         FROM
+                             ms_qna_board
+                         order by qGroup desc, qStep asc   
+             ) A WHERE ROWNUM <= #{pageNum} * #{amount}
+         ) WHERE RNUM > (#{pageNum}-1) * #{amount}
+      ]]>
+   </select>
+   
+  
+  </mapper>
