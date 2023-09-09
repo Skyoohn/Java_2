@@ -1,0 +1,534 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="edu.global.ex.mapper.BoardMapper">
+
+
+<!--     <select id="getList_base" resultType="edu.global.ex.vo.BoardVO">
+    <![CDATA[
+      select * from ms_board order by bGroup desc, bStep asc
+   ]]>    
+    </select>
+    
+   <select id="read_base" resultType="BoardVO">
+    <![CDATA[
+      select * from ms_board where bid = #{bid}
+   ]]>    
+    </select>
+    
+      <update id="update_base">
+    <![CDATA[
+      update ms_board set bname=#{bname}, btitle=#{btitle}, bcontent=#{bcontent} 
+             where bid =#{bid}
+   ]]>    
+    </update>
+    
+    <delete id="delete_base">
+    <![CDATA[
+      delete from ms_board where bid =#{bid}
+   ]]>    
+    </delete>
+    
+    <insert id="insert_base">
+    <![CDATA[
+	insert into ms_board (bid, bname, btitle, bcontent, bgroup, bstep, bindent) 
+            values (ms_board_seq.nextval, #{bname}, #{btitle}, #{bcontent}, ms_board_seq.currval, 0, 0) 
+   ]]>    
+    </insert>
+    
+     댓글을 하나씩 미뤄서 정렬을 해줘야 하기 때문에 
+         세로 정렬을 bstep에 +1로 한칸씩 미뤄내줘야한다.
+    <update id="updateShape_base">
+    <![CDATA[
+      update ms_board set bstep = bstep + 1 where bgroup =#{bgroup} and bstep > #{bstep}
+   ]]>    
+    </update>
+    
+        <insert id="insertReply_base">
+    <![CDATA[
+      insert into ms_board (bid, bname, btitle, bcontent, bgroup, bstep, bindent) 
+      values (ms_board_seq.nextval, #{bname}, #{btitle},#{bcontent}, 
+                #{bgroup}, #{bstep}+1, #{bindent}+1)
+   ]]>    
+    </insert>
+    
+       <select id="getTotalCount_base" resultType="int">
+      <![CDATA[
+          select count(*) from ms_board
+      ]]>
+   </select>
+   
+   <select id="getListWithPaging_base" resultType="BoardVO">
+      <![CDATA[
+        SELECT * FROM (
+              SELECT ROWNUM AS RNUM, A.* FROM (
+                       SELECT
+                             *
+                         FROM
+                             ms_board
+                         order by bGroup desc, bStep asc   
+             ) A WHERE ROWNUM <= #{pageNum} * #{amount}
+         ) WHERE RNUM > (#{pageNum}-1) * #{amount}
+      ]]>
+   </select> -->
+
+
+
+
+
+
+
+
+	<!-- 공지 -->
+
+      <select id="getList_notice" resultType="edu.global.ex.vo.BoardVO">
+    <![CDATA[
+      select * from ms_notice_board order by nGroup desc, nStep asc
+    ]]>    
+    </select>
+    
+   <select id="read_notice" resultType="BoardVO">
+    <![CDATA[
+      select * from ms_notice_board where nid = #{nid}
+    ]]>    
+    </select>
+    
+      <update id="update_notice">
+    <![CDATA[
+      update ms_notice_board set nname=#{nname}, ntitle=#{ntitle}, ncontent=#{ncontent} 
+             where nid =#{nid}
+   ]]>    
+    </update>
+    
+    <delete id="delete_notice">
+    <![CDATA[
+      delete from ms_notice_board where nid =#{nid}
+   ]]>    
+    </delete>
+    
+    <insert id="insert_notice">
+    <![CDATA[
+	insert into ms_notice_board (nid, nname, ntitle, ncontent, ngroup, nstep, nindent, selecter) 
+            values (ms_notice_board_seq.nextval, #{nname}, #{ntitle}, #{ncontent}, ms_notice_board_seq.currval, 0, 0, ${selecter}) 
+   ]]>    
+    </insert>
+    
+     <!--댓글을 하나씩 미뤄서 정렬을 해줘야 하기 때문에 
+         세로 정렬을 bstep에 +1로 한칸씩 미뤄내줘야한다. -->
+    <update id="updateShape_notice">
+    <![CDATA[
+      update ms_notice_board set nstep = nstep + 1 where ngroup =#{ngroup} and nstep > #{nstep}
+   ]]>    
+    </update>
+    
+        <insert id="insertReply_notice">
+    <![CDATA[
+      insert into ms_notice_board (nid, nname, ntitle, ncontent, ngroup, nstep, nindent, selecter) 
+      values (ms_notice_board_seq.nextval, #{nname}, #{ntitle},#{ncontent}, 
+                #{ngroup}, #{nstep}+1, #{nindent}+1, 1)
+   ]]>    
+    </insert>
+    
+    
+    
+    <!-- 밑으로 qna -->
+    
+  
+    <select id="getList" resultType="edu.global.ex.vo.BoardVO">
+    <![CDATA[
+      select * from ms_qna_board order by qGroup desc, qStep asc
+   ]]>    
+    </select>
+    
+   <select id="read" resultType="BoardVO">
+    <![CDATA[
+      select * from ms_qna_board where qid = #{qid}
+   ]]>    
+    </select>
+    
+      <update id="update">
+    <![CDATA[
+      update ms_qna_board set qname=#{qname}, qtitle=#{qtitle}, qcontent=#{qcontent} 
+             where qid =#{qid}
+   ]]>    
+    </update>
+    
+    <delete id="delete">
+    <![CDATA[
+      delete from ms_qna_board where qid =#{qid}
+   ]]>    
+    </delete>
+    
+    <insert id="insert">
+    <![CDATA[
+	insert into ms_qna_board (qid, qname, qtitle, qcontent, qgroup, qstep, qindent, selecter) 
+            values (ms_qna_board_seq.nextval, #{qname}, #{qtitle}, #{qcontent}, ms_qna_board_seq.currval, 0, 0, ${selecter}) 
+   ]]>    
+    </insert>
+    
+     <!--댓글을 하나씩 미뤄서 정렬을 해줘야 하기 때문에 
+         세로 정렬을 bstep에 +1로 한칸씩 미뤄내줘야한다. -->
+    <update id="updateShape">
+    <![CDATA[
+      update ms_qna_board set qstep = qstep + 1 where qgroup =#{qgroup} and qstep > #{qstep}
+   ]]>    
+    </update>
+    
+        <insert id="insertReply">
+    <![CDATA[
+      insert into ms_qna_board (qid, qname, qtitle, qcontent, qgroup, qstep, qindent, selecter) 
+      values (ms_qna_board_seq.nextval, #{qname}, #{qtitle},#{qcontent}, 
+                #{qgroup}, #{qstep}+1, #{qindent}+1, 2)
+   ]]>    
+    </insert>
+    
+       <select id="getTotalCount" resultType="int">
+      <![CDATA[
+          select count(*) from ms_qna_board
+      ]]>
+   </select>
+   
+   <select id="getListWithPaging" resultType="BoardVO">
+      <![CDATA[
+        SELECT * FROM (
+              SELECT ROWNUM AS RNUM, A.* FROM (
+                       SELECT
+                             *
+                         FROM
+                             ms_qna_board
+                         order by qGroup desc, qStep asc   
+             ) A WHERE ROWNUM <= #{pageNum} * #{amount}
+         ) WHERE RNUM > (#{pageNum}-1) * #{amount}
+      ]]>
+   </select>
+
+
+<!-- 밑으로 review -->
+
+    <select id="getList_review" resultType="edu.global.ex.vo.BoardVO">
+    <![CDATA[
+      select * from ms_review_board order by rGroup desc, rStep asc
+   ]]>    
+    </select>
+    
+   <select id="read_review" resultType="BoardVO">
+    <![CDATA[
+      select * from ms_review_board where rid = #{rid}
+   ]]>    
+    </select>
+    
+      <update id="update_review">
+    <![CDATA[
+      update ms_review_board set rname=#{rname}, rtitle=#{rtitle}, rcontent=#{rcontent} 
+             where rid =#{rid}
+   ]]>    
+    </update>
+    
+    <delete id="delete_review">
+    <![CDATA[
+      delete from ms_review_board where rid =#{rid}
+   ]]>    
+    </delete>
+    
+    <insert id="insert_review">
+    <![CDATA[
+	insert into ms_review_board (rid, rname, rtitle, rcontent, rgroup, rstep, rindent, selecter) 
+            values (ms_review_board_seq.nextval, #{rname}, #{rtitle}, #{rcontent}, ms_review_board_seq.currval, 0, 0, ${selecter}) 
+   ]]>    
+    </insert>
+    
+     <!--댓글을 하나씩 미뤄서 정렬을 해줘야 하기 때문에 
+         세로 정렬을 bstep에 +1로 한칸씩 미뤄내줘야한다. -->
+    <update id="updateShape_review">
+    <![CDATA[
+      update ms_review_board set rstep = rstep + 1 where rgroup =#{rgroup} and rstep > #{rstep}
+   ]]>    
+    </update>
+    
+        <insert id="insertReply_review">
+    <![CDATA[
+      insert into ms_review_board (rid, rname, rtitle, rcontent, rgroup, rstep, rindent, selecter) 
+      values (ms_review_board_seq.nextval, #{rname}, #{rtitle},#{rcontent}, 
+                #{rgroup}, #{rstep}+1, #{rindent}+1, 3)
+   ]]>    
+    </insert>
+    
+       <select id="getTotalCount_review" resultType="int">
+      <![CDATA[
+          select count(*) from ms_review_board
+      ]]>
+   </select>
+   
+   <select id="getListWithPaging_review" resultType="BoardVO">
+      <![CDATA[
+        SELECT * FROM (
+              SELECT ROWNUM AS RNUM, A.* FROM (
+                       SELECT
+                             *
+                         FROM
+                             ms_review_board
+                         order by rGroup desc, rStep asc   
+             ) A WHERE ROWNUM <= #{pageNum} * #{amount}
+         ) WHERE RNUM > (#{pageNum}-1) * #{amount}
+      ]]>
+   </select>
+
+
+
+
+
+<!-- qna, review, notice 각 게시판 전용 -->
+
+    <select id="getList_only" resultType="edu.global.ex.vo.BoardVO">
+    <![CDATA[
+      select * from ms_qna_board order by qGroup desc, qStep asc
+   ]]>    
+    </select>
+    
+   <select id="read_only" resultType="BoardVO">
+    <![CDATA[
+      select * from ms_qna_board where qid = #{qid}
+   ]]>    
+    </select>
+    
+      <update id="update_only">
+    <![CDATA[
+      update ms_qna_board set qname=#{qname}, qtitle=#{qtitle}, qcontent=#{qcontent} 
+             where qid =#{qid}
+   ]]>    
+    </update>
+    
+    <delete id="delete_only">
+    <![CDATA[
+      delete from ms_qna_board where qid =#{qid}
+   ]]>    
+    </delete>
+    
+    <insert id="insert_only">
+    <![CDATA[
+	insert into ms_qna_board (qid, qname, qtitle, qcontent, qgroup, qstep, qindent, selecter) 
+            values (ms_qna_board_seq.nextval, #{qname}, #{qtitle}, #{qcontent}, ms_qna_board_seq.currval, 0, 0, ${selecter}) 
+   ]]>    
+    </insert>
+    
+     <!--댓글을 하나씩 미뤄서 정렬을 해줘야 하기 때문에 
+         세로 정렬을 bstep에 +1로 한칸씩 미뤄내줘야한다. -->
+    <update id="updateShape_only">
+    <![CDATA[
+      update ms_qna_board set qstep = qstep + 1 where qgroup =#{qgroup} and qstep > #{qstep}
+   ]]>    
+    </update>
+    
+        <insert id="insertReply_only">
+    <![CDATA[
+      insert into ms_qna_board (qid, qname, qtitle, qcontent, qgroup, qstep, qindent, selecter) 
+      values (ms_qna_board_seq.nextval, #{qname}, #{qtitle},#{qcontent}, 
+                #{qgroup}, #{qstep}+1, #{qindent}+1, 2)
+   ]]>    
+    </insert>
+    
+       <select id="getTotalCount_only" resultType="int">
+      <![CDATA[
+          select count(*) from ms_qna_board
+      ]]>
+   </select>
+   
+   <select id="getListWithPaging_only" resultType="BoardVO">
+      <![CDATA[
+        SELECT * FROM (
+              SELECT ROWNUM AS RNUM, A.* FROM (
+                       SELECT
+                             *
+                         FROM
+                             ms_qna_board
+                         order by qGroup desc, qStep asc   
+             ) A WHERE ROWNUM <= #{pageNum} * #{amount}
+         ) WHERE RNUM > (#{pageNum}-1) * #{amount}
+      ]]>
+   </select>
+
+
+
+
+
+
+
+    <select id="getList_review_only" resultType="edu.global.ex.vo.BoardVO">
+    <![CDATA[
+      select * from ms_review_board order by rGroup desc, rStep asc
+   ]]>    
+    </select>
+    
+   <select id="read_review_only" resultType="BoardVO">
+    <![CDATA[
+      select * from ms_review_board where rid = #{rid}
+   ]]>    
+    </select>
+    
+      <update id="update_review_only">
+    <![CDATA[
+      update ms_review_board set rname=#{rname}, rtitle=#{rtitle}, rcontent=#{rcontent} 
+             where rid =#{rid}
+   ]]>    
+    </update>
+    
+    <delete id="delete_review_only">
+    <![CDATA[
+      delete from ms_review_board where rid =#{rid}
+   ]]>    
+    </delete>
+    
+    <insert id="insert_review_only">
+    <![CDATA[
+	insert into ms_review_board (rid, rname, rtitle, rcontent, rgroup, rstep, rindent, selecter) 
+            values (ms_review_board_seq.nextval, #{rname}, #{rtitle}, #{rcontent}, ms_review_board_seq.currval, 0, 0, ${selecter}) 
+   ]]>    
+    </insert>
+    
+     <!--댓글을 하나씩 미뤄서 정렬을 해줘야 하기 때문에 
+         세로 정렬을 bstep에 +1로 한칸씩 미뤄내줘야한다. -->
+    <update id="updateShape_review_only">
+    <![CDATA[
+      update ms_review_board set rstep = rstep + 1 where rgroup =#{rgroup} and rstep > #{rstep}
+   ]]>    
+    </update>
+    
+        <insert id="insertReply_review_only">
+    <![CDATA[
+      insert into ms_review_board (rid, rname, rtitle, rcontent, rgroup, rstep, rindent, selecter) 
+      values (ms_review_board_seq.nextval, #{rname}, #{rtitle},#{rcontent}, 
+                #{rgroup}, #{rstep}+1, #{rindent}+1, 3)
+   ]]>    
+    </insert>
+    
+       <select id="getTotalCount_review_only" resultType="int">
+      <![CDATA[
+          select count(*) from ms_review_board
+      ]]>
+   </select>
+   
+   <select id="getListWithPaging_review_only" resultType="BoardVO">
+      <![CDATA[
+        SELECT * FROM (
+              SELECT ROWNUM AS RNUM, A.* FROM (
+                       SELECT
+                             *
+                         FROM
+                             ms_review_board
+                         order by rGroup desc, rStep asc   
+             ) A WHERE ROWNUM <= #{pageNum} * #{amount}
+         ) WHERE RNUM > (#{pageNum}-1) * #{amount}
+      ]]>
+   </select>
+
+
+
+
+
+   <select id="getList_notice_qna" resultType="edu.global.ex.vo.BoardVO">
+    <![CDATA[
+      select * from ms_notice_board order by nGroup desc, nStep asc
+    ]]>    
+    </select>
+    
+   <select id="read_notice_qna" resultType="BoardVO">
+    <![CDATA[
+      select * from ms_notice_board where nid = #{nid}
+    ]]>    
+    </select>
+    
+      <update id="update_notice_qna">
+    <![CDATA[
+      update ms_notice_board set nname=#{nname}, ntitle=#{ntitle}, ncontent=#{ncontent} 
+             where nid =#{nid}
+   ]]>    
+    </update>
+    
+    <delete id="delete_notice_qna">
+    <![CDATA[
+      delete from ms_notice_board where nid =#{nid}
+   ]]>    
+    </delete>
+    
+    <insert id="insert_notice_qna">
+    <![CDATA[
+	insert into ms_notice_board (nid, nname, ntitle, ncontent, ngroup, nstep, nindent, selecter) 
+            values (ms_notice_board_seq.nextval, #{nname}, #{ntitle}, #{ncontent}, ms_notice_board_seq.currval, 0, 0, ${selecter}) 
+   ]]>    
+    </insert>
+    
+     <!--댓글을 하나씩 미뤄서 정렬을 해줘야 하기 때문에 
+         세로 정렬을 bstep에 +1로 한칸씩 미뤄내줘야한다. -->
+    <update id="updateShape_notice_qna">
+    <![CDATA[
+      update ms_notice_board set nstep = nstep + 1 where ngroup =#{ngroup} and nstep > #{nstep}
+   ]]>    
+    </update>
+    
+        <insert id="insertReply_notice_qna">
+    <![CDATA[
+      insert into ms_notice_board (nid, nname, ntitle, ncontent, ngroup, nstep, nindent, selecter) 
+      values (ms_notice_board_seq.nextval, #{nname}, #{ntitle},#{ncontent}, 
+                #{ngroup}, #{nstep}+1, #{nindent}+1, 1)
+   ]]>    
+    </insert>
+
+
+
+
+
+
+
+   <select id="getList_notice_review" resultType="edu.global.ex.vo.BoardVO">
+    <![CDATA[
+      select * from ms_notice_board order by nGroup desc, nStep asc
+    ]]>    
+    </select>
+    
+   <select id="read_notice_review" resultType="BoardVO">
+    <![CDATA[
+      select * from ms_notice_board where nid = #{nid}
+    ]]>    
+    </select>
+    
+      <update id="update_notice_review">
+    <![CDATA[
+      update ms_notice_board set nname=#{nname}, ntitle=#{ntitle}, ncontent=#{ncontent} 
+             where nid =#{nid}
+   ]]>    
+    </update>
+    
+    <delete id="delete_notice_review">
+    <![CDATA[
+      delete from ms_notice_board where nid =#{nid}
+   ]]>    
+    </delete>
+    
+    <insert id="insert_notice_review">
+    <![CDATA[
+	insert into ms_notice_board (nid, nname, ntitle, ncontent, ngroup, nstep, nindent, selecter) 
+            values (ms_notice_board_seq.nextval, #{nname}, #{ntitle}, #{ncontent}, ms_notice_board_seq.currval, 0, 0, ${selecter}) 
+   ]]>    
+    </insert>
+    
+     <!--댓글을 하나씩 미뤄서 정렬을 해줘야 하기 때문에 
+         세로 정렬을 bstep에 +1로 한칸씩 미뤄내줘야한다. -->
+    <update id="updateShape_notice_review">
+    <![CDATA[
+      update ms_notice_board set nstep = nstep + 1 where ngroup =#{ngroup} and nstep > #{nstep}
+   ]]>    
+    </update>
+    
+        <insert id="insertReply_notice_review">
+    <![CDATA[
+      insert into ms_notice_board (nid, nname, ntitle, ncontent, ngroup, nstep, nindent, selecter) 
+      values (ms_notice_board_seq.nextval, #{nname}, #{ntitle},#{ncontent}, 
+                #{ngroup}, #{nstep}+1, #{nindent}+1, 1)
+   ]]>    
+    </insert>
+
+
+
+</mapper>
