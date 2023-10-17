@@ -91,7 +91,7 @@ public class A230618 {
 //		else if(80 <= average) {
 //			System.out.println("성적 : 미");
 //		}
-//		else if(80 <= average) {
+//		else if(70 <= average) {
 //			System.out.println("성적 : 양");
 //		}
 //		else {
@@ -195,7 +195,7 @@ public class A230618 {
 //				if(count == 20) {
 //				break;
 //				
-//				// 20개까지만 찾기
+//				// 최소공배수 20개까지만 찾기
 //				}
 //			}
 //			
