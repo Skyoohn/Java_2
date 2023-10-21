@@ -458,7 +458,9 @@
 															<div class="col-sm-3">
 						<div class="address">
 							<img src="images/home/map.png" alt="" />
-							<div style = "text-aling; center">JP</div>
+    <div class="text-center">
+      <p>중앙 정렬된 텍스트</p>
+    </div>
 						</div>
 					</div>
 				
