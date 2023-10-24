@@ -44,7 +44,7 @@ public class CustomUserDetailsService implements UserDetailsService {
 		
 		log.warn("queried by UserVO mapper: " + user);
 		
-		return user == null ? null : new CustomUserDetailsVO(user,cart);
+		return user == null ? null : new CustomUserDetailsVO(user);
 	}
 	
 	
