@@ -80,6 +80,7 @@
 		</div><!--/header-bottom-->
 	
 	<section id="slider"><!--slider-->
+
 		<div class="container">
 			<div class="row">
 				<div class="col-sm-12">
@@ -89,15 +90,17 @@
 							<li data-target="#slider-carousel" data-slide-to="1"></li>
 							<li data-target="#slider-carousel" data-slide-to="2"></li>
 						</ol>
-						
+
 						<div class="carousel-inner">
 							<div class="item active">
+								<c:forEach var="boardList" items="${boardList}">
 								<div class="col-sm-6">
 									<h1><span>가장 </span>많이 본 단어</h1>
-									<h2>侍</h2>
+									<h2>${boardList.bid}</h2>
 									<p>さむらい</p>
 									<button type="button" class="btn btn-default get">뜻 보기</button>
 								</div>
+								</c:forEach>
 								<div class="col-sm-6">
 									<img src="images/home/girl1.jpg" class="girl img-responsive" alt="" />
 								</div>
@@ -127,6 +130,8 @@
 							</div>
 							
 						</div>
+						
+
 						
 						<a href="#slider-carousel" class="left control-carousel hidden-xs" data-slide="prev">
 							<i class="fa fa-angle-left"></i>
