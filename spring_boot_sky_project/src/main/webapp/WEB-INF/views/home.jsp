@@ -33,7 +33,7 @@
 				<div class="row">
 					<div class="col-md-4 clearfix">
 						<div class="logo pull-left">
-							<a href="index.html"><img src="images/home/logo.png" alt="" /></a>
+							<a href="/"><img src="images/home/logo.png" alt="" /></a>
 						</div>
 
 					</div>
@@ -56,7 +56,7 @@
 						</div>
 						<div class="mainmenu pull-left">
 							<ul class="nav navbar-nav collapse navbar-collapse">
-								<li><a href="index.html" class="active">Home</a></li>
+								<li><a href="/" class="active" style="color: skyblue">Home</a></li>
 								<li class="dropdown"><a href="#">단어<i class="fa fa-angle-down"></i></a>
                                     <ul role="menu" class="sub-menu">
                                         <li><a href="shop.html">속담</a></li>
@@ -79,6 +79,8 @@
 			</div>
 		</div><!--/header-bottom-->
 	
+
+	
 	<section id="slider"><!--slider-->
 
 		<div class="container">
@@ -90,27 +92,37 @@
 							<li data-target="#slider-carousel" data-slide-to="1"></li>
 							<li data-target="#slider-carousel" data-slide-to="2"></li>
 						</ol>
+						
+<style>
+.carousel-indicators li {
+  background-color: gray;
+}
+
+.carousel-indicators .active {
+  background-color: skyblue;
+}
+</style>
 
 						<div class="carousel-inner">
 							<div class="item active">
 								<c:forEach var="boardList" items="${boardList}">
 								<div class="col-sm-6">
-									<h1><span>가장 </span>많이 본 단어</h1>
+									<h1><span style="color: skyblue;">Most </span>Viewed Words</h1>
 									<h2>${boardList.nkanji}</h2>
-									<p>さむらい</p>
-									<button type="button" class="btn btn-default get">뜻 보기</button>
+									<p>${boardList.nruby}</p>
+									<button type="button" class="btn btn-default get" style="background-color: skyblue;">View definitions</button>
 								</div>
 								</c:forEach>
 								<div class="col-sm-6">
-									<img src="images/home/girl1.jpg" class="girl img-responsive" alt="" />
+									<img src="images/home/girl3.jpg" class="girl img-responsive" alt="" />
 								</div>
 							</div>
 							<div class="item">
 								<div class="col-sm-6">
-									<h1><span>가장 </span>많이 저장된 단어</h1>
+									<h1><span style="color: skyblue;">Most </span>saved words</h1>
 									<h2>侍</h2>
 									<p>さむらい</p>
-									<button type="button" class="btn btn-default get">뜻 보기</button>
+									<button type="button" class="btn btn-default get" style="background-color: skyblue;">View definitions</button>
 								</div>
 								<div class="col-sm-6">
 									<img src="images/home/girl2.jpg" class="girl img-responsive" alt="" />
@@ -119,13 +131,13 @@
 							
 							<div class="item">
 								<div class="col-sm-6">
-									<h1><span>가장 </span>많이 어려운 단어</h1>
+									<h1><span style="color: skyblue;">Most </span>difficult words</h1>
 									<h2>侍</h2>
 									<p>さむらい</p>
-									<button type="button" class="btn btn-default get">뜻 보기</button>
+									<button type="button" class="btn btn-default get" style="background-color: skyblue;">View definitions</button>
 								</div>
 								<div class="col-sm-6">
-									<img src="images/home/girl3.jpg" class="girl img-responsive" alt="" />
+									<img src="images/home/girl1.jpg" class="girl img-responsive" alt="" />
 								</div>
 							</div>
 							
@@ -133,12 +145,22 @@
 						
 
 						
-						<a href="#slider-carousel" class="left control-carousel hidden-xs" data-slide="prev">
-							<i class="fa fa-angle-left"></i>
-						</a>
-						<a href="#slider-carousel" class="right control-carousel hidden-xs" data-slide="next">
-							<i class="fa fa-angle-right"></i>
-						</a>
+<style>
+  a.left.control-carousel:hover {
+    color: skyblue;
+  }
+  a.right.control-carousel:hover {
+    color: skyblue;
+  }
+</style>
+<a href="#slider-carousel" class="left control-carousel hidden-xs" data-slide="prev">
+  <i class="fa fa-angle-left"></i>
+</a>
+<a href="#slider-carousel" class="right control-carousel hidden-xs" data-slide="next">
+  <i class="fa fa-angle-right"></i>
+</a>
+
+
 					</div>
 					
 				</div>
@@ -151,7 +173,7 @@
 			<div class="row">
 				<div class="col-sm-3">
 					<div class="left-sidebar">
-						<h2>종류</h2>
+						<h2 style="color: skyblue;">종류</h2>
 						<div class="panel-group category-products" id="accordian"><!--category-productsr-->
 							<div class="panel panel-default">
 								<div class="panel-heading">
@@ -212,7 +234,7 @@
 						</div><!--/category-products-->
 					
 						<div class="brands_products"><!--brands_products-->
-							<h2>한자 수</h2>
+							<h2 style="color: skyblue;">한자 수</h2>
 							<div class="brands-name">
 								<ul class="nav nav-pills nav-stacked">
 									<li><a href="#"> <span class="pull-right">(50)</span>1개</a></li>
@@ -234,298 +256,31 @@
 				
 				<div class="col-sm-9 padding-right">
 					<div class="features_items"><!--features_items-->
-						<h2 class="title text-center">최근 등록 된 단어</h2>
-						
-						
-						<div class="col-sm-2">
-							<div class="product-image-wrapper">
-								<div class="single-products">
-									<div class="productinfo text-center">
-										<h2>侍</h2>
-										<p>さむらい</p>
-										<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>단어 저장</a>
-									</div>
-								</div>
-								<div class="choose">
-									<ul class="nav nav-pills nav-justified">
-									<li><a href="#"><i class="fa fa-plus-square"></i>최고난이도로 선정</a></li>									</ul>
-								</div>
-							</div>
-						</div>
+						<h2 class="title text-center" style="color: skyblue;">최근 등록 된 단어</h2>
 
-						<div class="col-sm-2">
-							<div class="product-image-wrapper">
-								<div class="single-products">
-									<div class="productinfo text-center">
-										<h2>侍</h2>
-										<p>さむらい</p>
-										<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>단어 저장</a>
-									</div>
-								</div>
-								<div class="choose">
-									<ul class="nav nav-pills nav-justified">
-									<li><a href="#"><i class="fa fa-plus-square"></i>최고난이도로 선정</a></li>									</ul>
-								</div>
-							</div>
-						</div>
+<div class="row">
+<c:forEach var="boardList" items="${boardList}">
+  <c:forEach var="i" begin="1" end="18">
+    <div class="col-sm-2">
+      <div class="product-image-wrapper">
+        <div class="single-products">
+          <div class="productinfo text-center">
+            <h2 style="color: skyblue;">${boardList.nkanji}</h2>
+            <p>${boardList.nruby}</p>
+            <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Save Words</a>
+          </div>
+        </div>
+        <div class="choose">
+          <ul class="nav nav-pills nav-justified">
+            <li><a href="#"><i class="fa fa-plus-square"></i>Selecting the highest difficulty level</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </c:forEach>
+  </c:forEach>
+</div>
 
-						<div class="col-sm-2">
-							<div class="product-image-wrapper">
-								<div class="single-products">
-									<div class="productinfo text-center">
-										<h2>侍</h2>
-										<p>さむらい</p>
-										<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>단어 저장</a>
-									</div>
-								</div>
-								<div class="choose">
-									<ul class="nav nav-pills nav-justified">
-									<li><a href="#"><i class="fa fa-plus-square"></i>최고난이도로 선정</a></li>									</ul>
-								</div>
-							</div>
-						</div>
-
-						<div class="col-sm-2">
-							<div class="product-image-wrapper">
-								<div class="single-products">
-									<div class="productinfo text-center">
-										<h2>侍</h2>
-										<p>さむらい</p>
-										<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>단어 저장</a>
-									</div>
-								</div>
-								<div class="choose">
-									<ul class="nav nav-pills nav-justified">
-									<li><a href="#"><i class="fa fa-plus-square"></i>최고난이도로 선정</a></li>									</ul>
-								</div>
-							</div>
-						</div>
-
-						<div class="col-sm-2">
-							<div class="product-image-wrapper">
-								<div class="single-products">
-									<div class="productinfo text-center">
-										<h2>侍</h2>
-										<p>さむらい</p>
-										<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>단어 저장</a>
-									</div>
-								</div>
-								<div class="choose">
-									<ul class="nav nav-pills nav-justified">
-									<li><a href="#"><i class="fa fa-plus-square"></i>최고난이도로 선정</a></li>									</ul>
-								</div>
-							</div>
-						</div>
-
-						<div class="col-sm-2">
-							<div class="product-image-wrapper">
-								<div class="single-products">
-									<div class="productinfo text-center">
-										<h2>侍</h2>
-										<p>さむらい</p>
-										<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>단어 저장</a>
-									</div>
-								</div>
-								<div class="choose">
-									<ul class="nav nav-pills nav-justified">
-									<li><a href="#"><i class="fa fa-plus-square"></i>최고난이도로 선정</a></li>									</ul>
-								</div>
-							</div>
-						</div>
-
-						<div class="col-sm-2">
-							<div class="product-image-wrapper">
-								<div class="single-products">
-									<div class="productinfo text-center">
-										<h2>侍</h2>
-										<p>さむらい</p>
-										<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>단어 저장</a>
-									</div>
-								</div>
-								<div class="choose">
-									<ul class="nav nav-pills nav-justified">
-									<li><a href="#"><i class="fa fa-plus-square"></i>최고난이도로 선정</a></li>									</ul>
-								</div>
-							</div>
-						</div>
-
-						<div class="col-sm-2">
-							<div class="product-image-wrapper">
-								<div class="single-products">
-									<div class="productinfo text-center">
-										<h2>侍</h2>
-										<p>さむらい</p>
-										<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>단어 저장</a>
-									</div>
-								</div>
-								<div class="choose">
-									<ul class="nav nav-pills nav-justified">
-									<li><a href="#"><i class="fa fa-plus-square"></i>최고난이도로 선정</a></li>									</ul>
-								</div>
-							</div>
-						</div>
-
-						<div class="col-sm-2">
-							<div class="product-image-wrapper">
-								<div class="single-products">
-									<div class="productinfo text-center">
-										<h2>侍</h2>
-										<p>さむらい</p>
-										<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>단어 저장</a>
-									</div>
-								</div>
-								<div class="choose">
-									<ul class="nav nav-pills nav-justified">
-									<li><a href="#"><i class="fa fa-plus-square"></i>최고난이도로 선정</a></li>									</ul>
-								</div>
-							</div>
-						</div>
-
-						<div class="col-sm-2">
-							<div class="product-image-wrapper">
-								<div class="single-products">
-									<div class="productinfo text-center">
-										<h2>侍</h2>
-										<p>さむらい</p>
-										<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>단어 저장</a>
-									</div>
-								</div>
-								<div class="choose">
-									<ul class="nav nav-pills nav-justified">
-									<li><a href="#"><i class="fa fa-plus-square"></i>최고난이도로 선정</a></li>									</ul>
-								</div>
-							</div>
-						</div>
-						
-						<div class="col-sm-2">
-							<div class="product-image-wrapper">
-								<div class="single-products">
-									<div class="productinfo text-center">
-										<h2>侍</h2>
-										<p>さむらい</p>
-										<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>단어 저장</a>
-									</div>
-								</div>
-								<div class="choose">
-									<ul class="nav nav-pills nav-justified">
-									<li><a href="#"><i class="fa fa-plus-square"></i>최고난이도로 선정</a></li>									</ul>
-								</div>
-							</div>
-						</div>
-						
-						<div class="col-sm-2">
-							<div class="product-image-wrapper">
-								<div class="single-products">
-									<div class="productinfo text-center">
-										<h2>侍</h2>
-										<p>さむらい</p>
-										<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>단어 저장</a>
-									</div>
-								</div>
-								<div class="choose">
-									<ul class="nav nav-pills nav-justified">
-									<li><a href="#"><i class="fa fa-plus-square"></i>최고난이도로 선정</a></li>									</ul>
-								</div>
-							</div>
-						</div>
-						
-												<div class="col-sm-2">
-							<div class="product-image-wrapper">
-								<div class="single-products">
-									<div class="productinfo text-center">
-										<h2>侍</h2>
-										<p>さむらい</p>
-										<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>단어 저장</a>
-									</div>
-								</div>
-								<div class="choose">
-									<ul class="nav nav-pills nav-justified">
-									<li><a href="#"><i class="fa fa-plus-square"></i>최고난이도로 선정</a></li>									</ul>
-								</div>
-							</div>
-						</div>
-						
-												<div class="col-sm-2">
-							<div class="product-image-wrapper">
-								<div class="single-products">
-									<div class="productinfo text-center">
-										<h2>侍</h2>
-										<p>さむらい</p>
-										<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>단어 저장</a>
-									</div>
-								</div>
-								<div class="choose">
-									<ul class="nav nav-pills nav-justified">
-									<li><a href="#"><i class="fa fa-plus-square"></i>최고난이도로 선정</a></li>									</ul>
-								</div>
-							</div>
-						</div>
-						
-												<div class="col-sm-2">
-							<div class="product-image-wrapper">
-								<div class="single-products">
-									<div class="productinfo text-center">
-										<h2>侍</h2>
-										<p>さむらい</p>
-										<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>단어 저장</a>
-									</div>
-								</div>
-								<div class="choose">
-									<ul class="nav nav-pills nav-justified">
-									<li><a href="#"><i class="fa fa-plus-square"></i>최고난이도로 선정</a></li>									</ul>
-								</div>
-							</div>
-						</div>
-						
-												<div class="col-sm-2">
-							<div class="product-image-wrapper">
-								<div class="single-products">
-									<div class="productinfo text-center">
-										<h2>侍</h2>
-										<p>さむらい</p>
-										<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>단어 저장</a>
-									</div>
-								</div>
-								<div class="choose">
-									<ul class="nav nav-pills nav-justified">
-									<li><a href="#"><i class="fa fa-plus-square"></i>최고난이도로 선정</a></li>									</ul>
-								</div>
-							</div>
-						</div>
-						
-												<div class="col-sm-2">
-							<div class="product-image-wrapper">
-								<div class="single-products">
-									<div class="productinfo text-center">
-										<h2>侍</h2>
-										<p>さむらい</p>
-										<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>단어 저장</a>
-									</div>
-								</div>
-								<div class="choose">
-									<ul class="nav nav-pills nav-justified">
-									<li><a href="#"><i class="fa fa-plus-square"></i>최고난이도로 선정</a></li>									</ul>
-								</div>
-							</div>
-						</div>
-						
-												<div class="col-sm-2">
-							<div class="product-image-wrapper">
-								<div class="single-products">
-									<div class="productinfo text-center">
-										<h2>侍</h2>
-										<p>さむらい</p>
-										<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>단어 저장</a>
-									</div>
-								</div>
-								<div class="choose">
-									<ul class="nav nav-pills nav-justified">
-									<li><a href="#"><i class="fa fa-plus-square"></i>최고난이도로 선정</a></li>									</ul>
-								</div>
-							</div>
-						</div>
-						
-						
 					</div><!--features_items-->
 					</section>
 
@@ -546,7 +301,7 @@
 				
 					<div class="col-lg-2">
 						<div class="companyinfo">
-							<h2><span>Muzu_</span>Kanji</h2>
+							<h2><span style="color: skyblue;">Muzu_</span>Kanji</h2>
 							<p>We'll share some of our favorite Japanese words that are difficult for foreigners to understand.</p>
 						</div>
 					</div>
@@ -621,7 +376,7 @@
 			<div class="container">
 				<div class="row">
 					<p class="pull-left">Copyright © 2023 Muzu_Kanji Inc. All rights reserved.</p>
-					<p class="pull-right">Designed by <span><a target="_blank" href="http://www.themeum.com">Themeum</a></span></p>
+					<p class="pull-right">Designed by <span><a target="_blank" href="http://www.themeum.com" style="color: skyblue;">Themeum</a></span></p>
 				</div>
 			</div>
 		</div>
@@ -636,5 +391,6 @@
 	<script src="js/price-range.js"></script>
     <script src="js/jquery.prettyPhoto.js"></script>
     <script src="js/main.js"></script>
+    
 </body>
 </html>
