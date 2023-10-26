@@ -6,6 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import edu.global.ex.service.BoardService;
+import edu.global.ex.service.TangoService;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
@@ -13,11 +14,11 @@ import lombok.extern.slf4j.Slf4j;
 public class HomeController {
 	
 	@Autowired
-	private BoardService boardService;
+	private TangoService tangoService;
 	
 	@GetMapping("/")
 	public String home(Model model) {
-		model.addAttribute("boardList",boardService.getList());
+		model.addAttribute("boardList",tangoService.getList());
 		
 		return "home";
 	}

@@ -96,7 +96,7 @@
 								<c:forEach var="boardList" items="${boardList}">
 								<div class="col-sm-6">
 									<h1><span>가장 </span>많이 본 단어</h1>
-									<h2>${boardList.bid}</h2>
+									<h2>${boardList.nkanji}</h2>
 									<p>さむらい</p>
 									<button type="button" class="btn btn-default get">뜻 보기</button>
 								</div>
