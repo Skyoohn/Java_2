@@ -93,7 +93,7 @@
 							<li data-target="#slider-carousel" data-slide-to="2"></li>
 						</ol>
 						
-<style>
+<!-- <style>
 .carousel-indicators li {
   background-color: gray;
 }
@@ -102,7 +102,7 @@
   background-color: skyblue;
 }
 </style>
-
+ -->
 						<div class="carousel-inner">
 							<div class="item active">
 								<c:forEach var="boardList" items="${boardList}">
@@ -145,7 +145,7 @@
 						
 
 						
-<style>
+<!-- <style>
   a.left.control-carousel:hover {
     color: skyblue;
   }
@@ -158,7 +158,7 @@
 </a>
 <a href="#slider-carousel" class="right control-carousel hidden-xs" data-slide="next">
   <i class="fa fa-angle-right"></i>
-</a>
+</a> -->
 
 
 					</div>
