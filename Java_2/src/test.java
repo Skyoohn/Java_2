@@ -5,7 +5,7 @@ public class test {
 	            System.out.print("BLOCK" + i + " ");
 
 	            for (int j = 0; j < 10; j++) {
-	                System.out.print(j + " ");
+	                System.out.print((10 * i)+j + " ");
 	            }
 	            System.out.println();
 	        }
