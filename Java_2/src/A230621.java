@@ -36,13 +36,13 @@
 
 
 
+
+
 public class A230621 {
 
 	public static void main(String[] args) {
-			
-	}	
-	}
-	
+	}}
+
 	
 	
 //		
