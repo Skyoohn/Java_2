@@ -10,8 +10,7 @@ public class J230619 {
 //	         }
 //	         System.out.println();
 //	      }
-}
-}
+}}
 
 //		for(int i=1;i<=5;i++) { //줄
 //		for(int j=1;j<=i;j++) { //내용물 삼각형
