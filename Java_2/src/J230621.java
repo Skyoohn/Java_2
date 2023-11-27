@@ -58,6 +58,8 @@ public class J230621 {
 //	}
 //		
 //	}
+		
+		
 //		Grade grade = new Grade();
 //		
 //		grade.setGrade(90, 75, 60);
