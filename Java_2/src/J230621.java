@@ -68,9 +68,9 @@ public class J230621 {
 //		System.out.println(grade.getGrade());
 //		
 //		
-//	}
-//
-//}
+	}
+
+}
 
 
 //- 클래스 Grade
